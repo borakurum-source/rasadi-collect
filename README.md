@@ -6,6 +6,17 @@ koymuyoruz" iddiasının koddan denetlenebilmesi.**
 
 > Herkese açık depo: https://github.com/borakurum-source/rasadi-collect
 
+## Rasadi
+
+Bu aynanın ait olduğu ürün: [Rasadi](https://rasadi.com.tr) — çerezsiz,
+IP-saklamayan web ölçümü ve ücretsiz KVKK/GDPR site denetimi.
+
+- [rasadi.com.tr](https://rasadi.com.tr) — ürün ana sayfası
+- [Şeffaflık: dayanaklar](https://rasadi.com.tr/seffaflik) — gizlilik iddiaları ve kanıtları
+- [Kendin denetle](https://rasadi.com.tr/kendin-denetle) — 5 dakikada bağımsız doğrulama kılavuzu
+- [KVKK denetimi](https://rasadi.com.tr/kvkk-denetim) — ücretsiz site taraması
+- [Verilerim](https://rasadi.com.tr/verilerim) — kaydını gör / sil (KVKK m.11)
+
 ## Kapsam
 
 | Dahil | Neden |
