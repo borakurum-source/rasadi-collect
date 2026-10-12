@@ -1,0 +1,50 @@
+// Rasadi ölçüm toplama hattı — Event modeli alıntısı.
+// prisma/schema.prisma dosyasından extract-opensource.mjs ile üretilir;
+// elle düzenlenmez. `Site` ilişkisi tam şemadadır, bu alıntıya dahil değildir.
+model Event {
+  id        String   @id @default(cuid())
+  siteId    String
+  site      Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  type      String   @default("pageview") // pageview | sale | event | outbound | download | 404 | engagement | form | copy | rage | jserr
+  url       String   @default("/")
+  referrer  String?
+  source    String   @default("Direkt")
+  country   String   @default("TR")
+  city      String   @default("")
+  device    String   @default("Masaüstü")
+  browser   String   @default("Chrome")
+  os        String   @default("Android")
+  sessionId String
+  value     Float?
+  createdAt DateTime @default(now())
+  campaign  String? // utm_campaign when the landing URL carries it
+  eventName String? // custom event name (type=event, Plausible-style goals)
+  medium    String? // utm_medium when the landing URL carries it (D-064)
+  paid      Boolean @default(false) // paid-click evidence at collect time (D-064)
+  utmSource String? // utm_source when the landing URL carries it (D-069)
+  utmTerm   String? // utm_term when the landing URL carries it (D-069)
+  utmContent String? // utm_content when the landing URL carries it (D-069)
+  // D-106 (additive, nullable): engagement rows carry scroll depth + Web
+  // Vitals; pageviews carry browser language + IANA timezone; auto-event rows
+  // (form/copy/rage/jserr) and auto sales carry a short sanitized `meta`.
+  scroll    Int?    // max scroll bucket 0/25/50/75/100 (engagement)
+  lcp       Int?    // Largest Contentful Paint, ms (engagement, first view)
+  inp       Int?    // Interaction to Next Paint (max), ms (engagement)
+  cls       Float?  // Cumulative Layout Shift (engagement)
+  meta      String? // form action[:field] | jserr host | sale 'dl'/'auto-url'
+  errMsg    String? // scrubbed JS error message fingerprint (jserr, D-143)
+  lang      String? // 2-letter browser language (pageview)
+  tz        String? // IANA timezone, e.g. Europe/Istanbul (pageview)
+  currency  String? // ISO 4217 code (sale)
+  // D-164 (additive, nullable): autonomous-system number + organization from
+  // the GeoLite2-ASN database (network-level, like country/city — the IP
+  // itself is still never stored). Read-side use is a follow-up once enough
+  // rows carry it; backfill is impossible (IPs are not kept).
+  asn       Int?
+  org       String?
+
+  @@index([siteId, createdAt])
+  @@index([siteId, type])
+  @@index([siteId, sessionId])
+  @@index([siteId, type, sessionId, createdAt])
+}

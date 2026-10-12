@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "files": [
+    { "src": "src/lib/tracker-source.ts", "dest": "src/lib/tracker-source.ts" },
+    { "src": "src/app/api/script/route.ts", "dest": "src/app/api/script/route.ts" },
+    { "src": "src/app/api/collect/route.ts", "dest": "src/app/api/collect/route.ts" },
+    { "src": "src/lib/tracking.ts", "dest": "src/lib/tracking.ts" },
+    { "src": "src/lib/normalize.ts", "dest": "src/lib/normalize.ts" },
+    { "src": "src/lib/locale.ts", "dest": "src/lib/locale.ts" },
+    { "src": "src/lib/locale-map.ts", "dest": "src/lib/locale-map.ts" },
+    { "src": "src/lib/rate-limit.ts", "dest": "src/lib/rate-limit.ts" },
+    { "src": "src/lib/geoip.ts", "dest": "src/lib/geoip.ts" },
+    { "src": "src/lib/pii-mask.ts", "dest": "src/lib/pii-mask.ts" },
+    { "src": "src/lib/keyed-mutex.ts", "dest": "src/lib/keyed-mutex.ts" },
+    { "src": "src/lib/interactions.ts", "dest": "src/lib/interactions.ts" },
+    { "src": "src/lib/ingest-guard.ts", "dest": "src/lib/ingest-guard.ts" },
+    { "src": "src/lib/cache.ts", "dest": "src/lib/cache.ts" },
+    { "src": "src/lib/types.ts", "dest": "src/lib/types.ts" },
+    { "src": "src/lib/db.ts", "dest": "src/lib/db.ts" }
+  ],
+  "schemaExcerpt": {
+    "src": "prisma/schema.prisma",
+    "dest": "prisma/schema.event.prisma",
+    "startMarker": "model Event {"
+  }
+}

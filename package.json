@@ -1,0 +1,10 @@
+{
+  "name": "rasadi-collect",
+  "version": "0.1.0",
+  "description": "Rasadi measurement collection pipeline — tracker, ingest endpoint, and record schema (read-only audit mirror).",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/borakurum-source/rasadi-collect.git"
+  }
+}
